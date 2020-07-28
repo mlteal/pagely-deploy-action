@@ -1,0 +1,22 @@
+name: 'Pagely Deploy to VPS'
+description: 'Deploy to your Pagely apps'
+inputs:
+  PAGELY_DEPLOY_DEST:
+    description: 'Set the subdirectory to deploy to examples: /httpdocs, /httpdocs/wp-content/plugins/my-plugin, /app'
+    required: true
+  PAGELY_INTEGRATION_ID:
+    description: 'Unique id for the integration'
+    required: true
+  PAGELY_INTEGRATION_SECRET:
+    description: 'Authentication token, Create an CI Integration in Atomic to get this'
+    required: true
+  PAGELY_APP_ID:
+    description: 'Id of the app you want to deploy to, available in Atomic'
+    required: true
+  PAGELY_WORKING_DIR:
+    description: 'A file, directory or wildcard pattern that describes what to upload see https://github.com/actions/toolkit/tree/main/packages/glob'
+    default: "$pwd"
+    required: false
+runs:
+  using: 'docker'
+  image: 'docker://mltealpagely/deploy-to-pagely:latest'
