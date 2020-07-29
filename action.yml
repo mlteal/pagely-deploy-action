@@ -15,7 +15,7 @@ inputs:
     required: true
   PAGELY_WORKING_DIR:
     description: 'The directory that you want deployed, based on the build files path. i.e. $GITHUB_WORKSPACE'
-    default: "$(pwd)"
+    default: "${{github.workspace}}"
     required: false
 runs:
   using: 'docker'
